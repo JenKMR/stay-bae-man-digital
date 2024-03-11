@@ -7,9 +7,6 @@ import '../styles/global.scss';
 import { BrowserRouter } from 'react-router-dom';
 import { FavouriteContextProvider } from './context/FavouritesContext';
 
-const siteBaseName = 
-process.env.NODE_ENV !== 'development' ? '/stay-bae-man-digital/' : '/'
-
 async function enableMocking() {
   // if (process.env.NODE_ENV !== 'development') {
   //   return;
@@ -38,7 +35,7 @@ enableMocking().then(() => {
       <FavouriteContextProvider>
         <BrowserRouter
           basename={
-            siteBaseName
+            process.env.NODE_ENV !== 'development' ? '/stay-bae-man-digital/' : '/'
           }>
           <App />
         </BrowserRouter>
